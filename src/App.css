@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap");
+
+:root {
+  --padding-standard: 16px;
+  --padding-large: 40px;
+  --margin-standard: 8px;
+  --padding-side: 100px;
+
+  --font-size-standard: 1rem;
+  --font-size-medium: 1.6rem;
+  --font-size-large: 3.2rem;
+  --font-size-huge: 4rem;
+
+  --color-bg1: rgb(250, 250, 250);
+  --color-bg2: rgb(230, 230, 230);
+  --color-text1: rgb(5, 5, 5);
+  --color-accent-1: rgb(242, 52, 0);
+  --color-accent-2: rgb(255, 183, 0);
+  --color-positive: rgb(35, 209, 96);
+  --rounding-size: 8px;
+  --coregrad: linear-gradient(
+    45deg,
+    var(--color-accent-1),
+    var(--color-accent-2)
+  );
+  --drop-shadow: rgba(150, 150, 150, 0.9);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-standard);
+  font-family: "Red Hat Display", sans-serif;
+  color: var(--color-text1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: var(--color-bg1);
+  overflow-x: hidden;
+}
+
+h1 {
+  line-height: 1em;
+  font-size: var(--font-size-huge);
+}
+
+img {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently */
+}
+
+.full {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: left;
+  padding: 0 var(--padding-side);
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ---------------------------------- */
+/*                 nav                */
+/* ---------------------------------- */
+
+.navbar {
+  padding: var(--padding-standard);
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  gap: var(--padding-standard);
+}
+
+.navbar ul li a {
+  padding: calc(var(--padding-standard) / 4) var(--padding-standard);
+  border-radius: var(--rounding-size);
+  background-color: var(--color-bg1);
+  border: 1px solid var(--color-bg2);
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 var(--color-bg2), 0 0px 8px -4px var(--drop-shadow);
+  -webkit-transition: ease-out 0.2s;
+  -moz-transition: ease-out 0.2s;
+  transition: ease-out 0.2s;
+}
+
+.navbar ul li a:hover {
+  color: var(--color-bg1);
+  box-shadow: inset 0 100px 0 0 var(--color-text1),
+    0 0px 8px -4px var(--drop-shadow);
+  border: 1px solid var(--color-text1);
+}
+
+/* ---------------------------------- */
+/*                hero                */
+/* ---------------------------------- */
+
+#heroTitle {
+  animation: 0.5s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 slideInFromLeft;
+  font-size: var(--font-size-huge);
+  font-weight: 800;
+  margin-bottom: var(--padding-large);
+}
+
+#hero > p {
+  animation: slideInFromLeft 0.5s cubic-bezier(0, 0.55, 0.45, 1) 0.2s 1 normal
+    both;
+  opacity: 0;
 }

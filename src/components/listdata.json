@@ -1,0 +1,22 @@
+[
+    {
+        "course_code":"MATH1853",
+        "year":"Year 1 Fall"
+    },
+    {
+        "course_code":"MATH1851",
+        "year":"Year 1 Spring"
+    },
+    {
+        "course_code":"ENGG1340",
+        "year":"Year 1 Spring"
+    },
+    {
+        "course_code":"ENGG1300",
+        "year":"Year 1 Spring"
+    },
+    {
+        "course_code":"ENGG1320",
+        "year":"Year 1 Spring"
+    }
+]
