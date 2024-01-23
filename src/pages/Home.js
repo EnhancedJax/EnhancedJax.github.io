@@ -22,10 +22,10 @@ const HomePage = () => {
                 {showThinkingBlock ? <ThinkingBlock /> : (
                     <>
                         <div id="heroTitle">
-                            <p><TypingText text={"I'm Jax, a"} onFinish={goNext} /></p>
-                            <h1>{typingIndex >= 1 && <TypingText text={"Creative student, based in Hong Kong"} onFinish={goNext} />}</h1>
+                            <p><TypingText text={"I'm Jax, an"} onFinish={goNext} /></p>
+                            <h1><span>{typingIndex >= 1 && <TypingText text={"Aspiring student"} onFinish={goNext} />}</span>{typingIndex >= 2 && <TypingText text={", based in Hong Kong"} onFinish={goNext} />}</h1>
                         </div>
-                        <p>{typingIndex >= 2 && <TypingText text={"Currently studying for my Engineering degree in Computer Science. Likes anything web as well as UI / UX design. Feel free to contact me for anything!"} timeout={10} onFinish={goNext} />}</p>
+                        <p>{typingIndex >= 3 && <TypingText text={"Currently studying for my Engineering degree in Computer Science. Likes anything web as well as UI / UX design. Feel free to contact me for anything!"} timeout={10} onFinish={goNext} />}</p>
                     </>
                 )}
             </div>

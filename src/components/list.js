@@ -20,6 +20,7 @@ function List(props) {
                 <a class="list_item" href={`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${item.year}%20${item.season}/${item.course_code}/${item.course_code}%20Notes.pdf`}>
                     <p>{item.course_code}</p>
                     <p>{item.date}</p>
+                    <p>Download</p>
                 </a>
             ))
             }
