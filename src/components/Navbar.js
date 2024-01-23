@@ -1,14 +1,14 @@
 import React from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
 
 function NavBar() {
     return (
         <nav class="navbar">
             <ul>
-                <li><a href="/#home">home</a></li>
-                <li><a href="/hkunotes">study notes</a></li>
-                <li><a href="/#skills">skills</a></li>
-                <li><a href="/#work">work</a></li>
-                <li><a href="https://github.com/EnhancedJax">github</a></li>
+                <li><Link class="navbar_button" to="/#home">home.</Link></li>
+                <li><Link class="navbar_button" to="/hkunotes">notes.</Link></li>
+                <li><Link class="navbar_button" to="/#work">work.</Link></li>
+                <li><Link class="navbar_button" to="https://github.com/EnhancedJax">github.</Link></li>
             </ul>
         </nav>
     );

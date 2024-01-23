@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import TypingText from '../components/typing';
 import data from "./listdata.json"
 
 function List(props) {
@@ -14,16 +15,12 @@ function List(props) {
         }
     })
     return (
-        <div style={{ backgroundColor: 'red', display: 'flex', padding: '10px', gap: '10px', flexWrap: 'wrap' }}>
+        <div class="list">
             {filteredData.map((item) => (
-                <div style={{
-                    padding: '10px',
-                    backgroundColor: 'green',
-                    borderRadius: '10px'
-                }}>
+                <a class="list_item" href={`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${item.year}%20${item.season}/${item.course_code}/${item.course_code}%20Notes.pdf`}>
                     <p>{item.course_code}</p>
-                    <p>{item.year}</p>
-                </div>
+                    <p>{item.date}</p>
+                </a>
             ))
             }
         </div >
