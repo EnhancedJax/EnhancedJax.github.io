@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TypingText from '../components/typing';
 import ThinkingBlock from '../components/thinking';
-import TextField from "@mui/material/TextField";
 import List from "../components/list";
 
 function NotesPage() {
@@ -32,14 +31,13 @@ function NotesPage() {
                 {showThinkingBlock ? <ThinkingBlock /> : (
                     <>
                         <h1><TypingText text={"my "} timeout={60} onFinish={goNext} /><span>{typingIndex >= 1 && <TypingText text={"notes."} timeout={60} onFinish={goNext} />}</span></h1>
-                        <p>{typingIndex >= 2 && <TypingText text={"Personal notes that I wrote for my classes in The University of Hong Kong. Note: Made for personal use only. Unmodified re-distribution is allowed. Content for reference only"} timeout="10" onFinish={goNext} />}</p>
+                        <p>{typingIndex >= 2 && <TypingText text={"Personal notes that I wrote for my classes in The University of Hong Kong. \nNote: Made for personal use only. Unmodified re-distribution is allowed. Content for reference only"} timeout="5" onFinish={goNext} />}</p>
                         <div className="search">
-                            <TextField
+                            <input
                                 id="outlined-basic"
                                 onChange={inputHandler}
-                                variant="outlined"
-                                fullWidth
-                                label="Search by course code"
+                                placeholder="Search by course code"
+                                type="text"
                             />
                         </div>
                     </>
@@ -50,6 +48,7 @@ function NotesPage() {
                     <List input={inputText} />
                 </div>
             )}
+            <div id="heroImage" />
         </div>
     );
 }
