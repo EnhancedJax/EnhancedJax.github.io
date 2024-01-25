@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Type from '../components/typing';
 import ThinkingBlock from '../components/thinking';
+import PageTransition from '../components/pagetransition';
 import BgImg from '../components/bgimg';
-import { motion, useIsPresent } from "framer-motion";
+import { useIsPresent, motion } from "framer-motion";
 // import { HashLink as Link } from 'react-router-hash-link';
 
 const HomePage = () => {
@@ -35,21 +36,15 @@ const HomePage = () => {
 
             </ViewBox>
             <ViewBox section="work">
-                <h1>work.</h1>
+                <h1>my <span className='text-highlight'>work</span>.</h1>
                 <p>Work in progress.</p>
             </ViewBox>
             <ViewBox section="contact">
-                <h1>contact me.</h1>
+                <h1><span className='text-highlight'>contact</span> me.</h1>
                 <p>enhanjax@connect.hku.hk</p>
             </ViewBox>
             <BgImg />
-            <motion.div
-                initial={{ scaleX: 1 }}
-                animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
-                exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
-                style={{ originX: { isPresent } ? 0 : 1 }}
-                class="privacy-screen"
-            />
+            <PageTransition state={isPresent} />
         </div>
     );
 }
@@ -58,9 +53,9 @@ const ViewBox = ({ section, children, is_transparent = false }) => {
     const bgis = is_transparent ? 'transparent' : 'white';
 
     return (
-        <div className={`px-20 h-screen flex flex-col justify-center items-start border-t border-t-neutral-100 bg-${bgis}`} id={section}>
+        <motion.div className={`px-20 h-screen flex flex-col justify-center items-start border-t border-t-neutral-100 bg-${bgis}`} id={section}>
             {children}
-        </div>
+        </motion.div>
     )
 }
 

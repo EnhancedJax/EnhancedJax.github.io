@@ -13,7 +13,7 @@ function Type({ t, d = 20, f = () => { } }) {
     }, [charsToShow]);
 
 
-    return (<>{t.substring(0, charsToShow)}{t.length === charsToShow ? "" : "|"}</>)
+    return (<>{t.substring(0, charsToShow)}</>)
 }
 
 export default Type;

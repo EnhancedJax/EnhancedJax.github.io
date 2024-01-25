@@ -8,12 +8,15 @@
   }
 }
 
-/* * {
+* {
   border: solid 1px red;
-} */
+}
 
 html {
   scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .text-highlight {
@@ -40,14 +43,4 @@ html {
 
 .notes_dl_item:hover > p:nth-child(2) {
   display: none;
-}
-
-.privacy-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000;
-  z-index: 2;
 }
