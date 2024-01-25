@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Type from '../components/typing';
 import ThinkingBlock from '../components/thinking';
 import List from "../components/list";
+import BgImg from '../components/bgimg';
+import { motion, useIsPresent } from "framer-motion";
 
 function NotesPage() {
     const [showThinkingBlock, setShowThinkingBlock] = useState(true);
     const [tI, sTI] = useState(0);
+    const isPresent = useIsPresent();
 
     function goNext() {
         sTI(n => n + 1);
@@ -32,13 +35,13 @@ function NotesPage() {
                     <>
                         <h1><Type t="my " d={60} f={goNext} /><span class="text-highlight">{tI >= 1 && <Type t="notes." d={60} f={goNext} />}</span></h1>
                         <p>{tI >= 2 && <Type t="Personal notes that I wrote for my classes in The University of Hong Kong. Made for personal use only. Unmodified re-distribution is allowed. Content for reference only" d="5" f={goNext} />}</p>
-                        <input
+                        {tI >= 3 && <input
                             id="outlined-basic"
                             onChange={inputHandler}
                             placeholder="Search by course code"
                             type="text"
-                            className="w-4/5 rounded-lg bg-white border border-black px-4 py-1 shadow-[inset_0_0_0_0_transparent,0_0px_6px_-4px_rgba(150,150,150,0.4)] text-black"
-                        />
+                            className="w-4/5 rounded-lg bg-white border border-black px-4 py-1 text-black shadow-2xl"
+                        />}
                     </>
                 )}
             </div>
@@ -47,7 +50,14 @@ function NotesPage() {
                     <List input={inputText} />
                 </div>
             )}
-            <div id="heroImage" />
+            <BgImg />
+            <motion.div
+                initial={{ scaleX: 1 }}
+                animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                style={{ originX: { isPresent } ? 0 : 1 }}
+                class="privacy-screen"
+            />
         </div>
     );
 }

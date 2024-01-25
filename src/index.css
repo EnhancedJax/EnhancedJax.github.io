@@ -22,3 +22,32 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.notes_dl_item > p:last-child {
+  display: None;
+  color: #fff;
+}
+
+.notes_dl_item:hover {
+  color: var(--color-bg1);
+  box-shadow: inset -7rem 0 1px 0 #000, 0 0px 6px -4px rgba(150, 150, 150, 0.4);
+  border: 1px solid #000;
+}
+
+.notes_dl_item:hover > p:last-child {
+  display: block;
+}
+
+.notes_dl_item:hover > p:nth-child(2) {
+  display: none;
+}
+
+.privacy-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  z-index: 2;
+}

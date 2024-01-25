@@ -1,6 +1,6 @@
 import { React, useState } from 'react'
-import TypingText from '../components/typing';
 import data from "./listdata.json"
+import { AnimatePresence, motion } from "framer-motion";
 
 function List(props) {
     //create a new array by filtering the original array
@@ -15,19 +15,25 @@ function List(props) {
         }
     })
     return (
-        <div className="flex flex-col gap-4">
+        <AnimatePresence mode='popLayout' className="flex flex-col gap-4">
             {filteredData.map((item) => (
-                <a className="flex flex-row justify-between items-center py-3 px-5 gap-4 w-full rounded-lg bg-white border border-neutral-100 cursor-pointer" href={`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${item.year}%20${item.season}/${item.course_code}/${item.course_code}%20Notes.pdf`}>
+                <motion.a
+                    key={item.course_code}
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 200, opacity: 0 }}
+                    src={`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${item.year}%20${item.season}/${item.course_code}/${item.course_code}%20Notes.jpg`}
+                    alt={item.course_code}
+                    className="flex flex-row justify-between items-center py-3 px-5 gap-4 w-full rounded-lg bg-white border border-neutral-100 cursor-pointer transition ease-out duration-200 notes_dl_item" href={`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${item.year}%20${item.season}/${item.course_code}/${item.course_code}%20Notes.pdf`}
+                >
                     <p>{item.course_code}</p>
                     <p>{item.date}</p>
                     <p>Download</p>
-                </a>
+                </motion.a>
             ))
             }
-        </div >
+        </AnimatePresence >
     )
 }
-
-// TODO: Download notes from repo.
 
 export default List

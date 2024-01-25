@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Type from '../components/typing';
 import ThinkingBlock from '../components/thinking';
-import heroImage from '../img/heroImage.webp';
+import BgImg from '../components/bgimg';
+import { motion, useIsPresent } from "framer-motion";
 // import { HashLink as Link } from 'react-router-hash-link';
 
 const HomePage = () => {
     const [showThinkingBlock, setShowThinkingBlock] = useState(true);
     const [tI, sTI] = useState(0); // typing index
+    const isPresent = useIsPresent();
     function goNext() {
         sTI(n => n + 1);
     }
@@ -29,7 +31,7 @@ const HomePage = () => {
                         <p>{tI >= 3 && <Type t="Currently studying for my Engineering degree in Computer Science. Likes anything web as well as UI / UX design. Feel free to contact me for anything!" d='10' f={goNext} />}</p>
                     </>
                 )}
-                <img src={heroImage} className='bg-cover bg-no-repeat bg-gray-400 fixed right-[calc(-34.36169*1rem)] bottom-[calc(-37.666*1rem)] w-[calc(86.3125*1rem)] h-[calc(81.6875*1rem)] transform rotate-12 opacity-10 -z-10' />
+
 
             </ViewBox>
             <ViewBox section="work">
@@ -40,6 +42,14 @@ const HomePage = () => {
                 <h1>contact me.</h1>
                 <p>enhanjax@connect.hku.hk</p>
             </ViewBox>
+            <BgImg />
+            <motion.div
+                initial={{ scaleX: 1 }}
+                animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                style={{ originX: { isPresent } ? 0 : 1 }}
+                class="privacy-screen"
+            />
         </div>
     );
 }
