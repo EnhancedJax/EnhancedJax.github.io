@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import TypingText from '../components/typing';
+import Type from '../components/typing';
 import ThinkingBlock from '../components/thinking';
 import List from "../components/list";
 
 function NotesPage() {
     const [showThinkingBlock, setShowThinkingBlock] = useState(true);
-    const [typingIndex, setTypingIndex] = useState(0);
+    const [tI, sTI] = useState(0);
 
     function goNext() {
-        setTypingIndex(n => n + 1);
+        sTI(n => n + 1);
     }
 
     useEffect(() => {
@@ -26,25 +26,24 @@ function NotesPage() {
     };
 
     return (
-        <div className="fullDouble">
-            <div className="fullContainer fullleft">
+        <div className="px-20 h-screen flex flex-row justify-center items-start gap-20">
+            <div className="flex flex-col justify-center items-left h-full gap-5 w-3/5">
                 {showThinkingBlock ? <ThinkingBlock /> : (
                     <>
-                        <h1><TypingText text={"my "} timeout={60} onFinish={goNext} /><span>{typingIndex >= 1 && <TypingText text={"notes."} timeout={60} onFinish={goNext} />}</span></h1>
-                        <p>{typingIndex >= 2 && <TypingText text={"Personal notes that I wrote for my classes in The University of Hong Kong. \nNote: Made for personal use only. Unmodified re-distribution is allowed. Content for reference only"} timeout="5" onFinish={goNext} />}</p>
-                        <div className="search">
-                            <input
-                                id="outlined-basic"
-                                onChange={inputHandler}
-                                placeholder="Search by course code"
-                                type="text"
-                            />
-                        </div>
+                        <h1><Type t="my " d={60} f={goNext} /><span class="text-highlight">{tI >= 1 && <Type t="notes." d={60} f={goNext} />}</span></h1>
+                        <p>{tI >= 2 && <Type t="Personal notes that I wrote for my classes in The University of Hong Kong. Made for personal use only. Unmodified re-distribution is allowed. Content for reference only" d="5" f={goNext} />}</p>
+                        <input
+                            id="outlined-basic"
+                            onChange={inputHandler}
+                            placeholder="Search by course code"
+                            type="text"
+                            className="w-4/5 rounded-lg bg-white border border-black px-4 py-1 shadow-[inset_0_0_0_0_transparent,0_0px_6px_-4px_rgba(150,150,150,0.4)] text-black"
+                        />
                     </>
                 )}
             </div>
             {showThinkingBlock ? "" : (
-                <div className="fullContainer fullRight">
+                <div className="flex flex-col justify-center items-left h-full gap-2 w-2/5">
                     <List input={inputText} />
                 </div>
             )}

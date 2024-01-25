@@ -3,7 +3,22 @@
 @tailwind utilities;
 
 @layer components {
-  .btn {
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+  h1 {
+    @apply text-8xl font-extrabold;
   }
+}
+
+/* * {
+  border: solid 1px red;
+} */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.text-highlight {
+  background: linear-gradient(180deg, #ff6969 24.77%, #000 85.42%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

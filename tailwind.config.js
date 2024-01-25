@@ -9,15 +9,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#FF6363',
-        secondary: {
-          100: '#E2E2D5',
-          200: '#888883',
-        }
+        primary: '#ff6969'
       }
     },
     fontFamily: {
-      sans: ['"cabinet-grotesk"', 'sans-serif']
+      // sans: ['"cabinet-grotesk"', 'sans-serif']
+      sans: ['"Red Hat Display"', 'sans-serif']
     }
   },
   plugins: [],

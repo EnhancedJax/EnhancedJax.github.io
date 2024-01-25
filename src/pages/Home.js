@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import TypingText from '../components/typing';
+import Type from '../components/typing';
 import ThinkingBlock from '../components/thinking';
+import heroImage from '../img/heroImage.webp';
 // import { HashLink as Link } from 'react-router-hash-link';
 
 const HomePage = () => {
     const [showThinkingBlock, setShowThinkingBlock] = useState(true);
-    const [typingIndex, setTypingIndex] = useState(0);
-
+    const [tI, sTI] = useState(0); // typing index
     function goNext() {
-        setTypingIndex(n => n + 1);
+        sTI(n => n + 1);
     }
 
     useEffect(() => {
@@ -19,29 +19,39 @@ const HomePage = () => {
 
     return (
         <div id="home">
-            <div class="full" id="hero">
+            <ViewBox section="hero" is_transparent>
                 {showThinkingBlock ? <ThinkingBlock /> : (
                     <>
-                        <div id="heroTitle">
-                            <p><TypingText text={"I'm Jax, an"} onFinish={goNext} /></p>
-                            <h1><span>{typingIndex >= 1 && <TypingText text={"Aspiring student"} onFinish={goNext} />}</span>{typingIndex >= 2 && <TypingText text={", based in Hong Kong"} onFinish={goNext} />}</h1>
+                        <div className='mb-6'>
+                            <p><Type t="I'm Jax, an" f={goNext} /></p>
+                            <h1><span className='text-highlight'>{tI >= 1 && <Type t="Aspiring student" f={goNext} />}</span>{tI >= 2 && <Type t=", based in Hong Kong" f={goNext} />}</h1>
                         </div>
-                        <p>{typingIndex >= 3 && <TypingText text={"Currently studying for my Engineering degree in Computer Science. Likes anything web as well as UI / UX design. Feel free to contact me for anything!"} timeout={10} onFinish={goNext} />}</p>
-                        {/* <Link class="hero_button button" to="/#home">contact me.</Link> */}
+                        <p>{tI >= 3 && <Type t="Currently studying for my Engineering degree in Computer Science. Likes anything web as well as UI / UX design. Feel free to contact me for anything!" d='10' f={goNext} />}</p>
                     </>
                 )}
-                <div id="heroImage" />
-            </div>
-            <div class="full" id="work">
+                <img src={heroImage} className='bg-cover bg-no-repeat bg-gray-400 fixed right-[calc(-34.36169*1rem)] bottom-[calc(-37.666*1rem)] w-[calc(86.3125*1rem)] h-[calc(81.6875*1rem)] transform rotate-12 opacity-10 -z-10' />
+
+            </ViewBox>
+            <ViewBox section="work">
                 <h1>work.</h1>
                 <p>Work in progress.</p>
-            </div>
-            <div class="full" id="contact">
+            </ViewBox>
+            <ViewBox section="contact">
                 <h1>contact me.</h1>
                 <p>enhanjax@connect.hku.hk</p>
-            </div>
+            </ViewBox>
         </div>
     );
+}
+
+const ViewBox = ({ section, children, is_transparent = false }) => {
+    const bgis = is_transparent ? 'transparent' : 'white';
+
+    return (
+        <div className={`px-20 h-screen flex flex-col justify-center items-start border-t border-t-neutral-100 bg-${bgis}`} id={section}>
+            {children}
+        </div>
+    )
 }
 
 export default HomePage;
