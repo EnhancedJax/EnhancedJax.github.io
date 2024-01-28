@@ -13,6 +13,7 @@ const HomePage = () => {
             setTime(new Date());
         }, 1000);
 
+        controls.set("hidden");
         controls.start("visible");
 
         return () => {
@@ -76,7 +77,7 @@ const HomePage = () => {
                     <motion.div
                         className="w-full flex-col justify-start items-center gap-10 flex"
                         variants={fadeInStagger}
-                        initial="hidden"
+                        initial='hidden'
                         animate={controls}
                     >
                         <div

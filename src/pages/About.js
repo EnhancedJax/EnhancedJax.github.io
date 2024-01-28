@@ -7,6 +7,7 @@ const AboutPage = () => {
 
     useEffect(() => {
 
+        controls.set("hidden");
         controls.start("visible");
 
     }, []);

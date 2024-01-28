@@ -7,6 +7,7 @@ const WorkPage = () => {
 
     useEffect(() => {
 
+        controls.set("hidden");
         controls.start("visible");
 
     }, []);

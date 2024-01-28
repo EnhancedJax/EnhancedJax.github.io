@@ -20,6 +20,7 @@ function NotesPage() {
 
 
     useEffect(() => {
+        controls.set("hidden");
         controls.start("visible");
     }, []);
 

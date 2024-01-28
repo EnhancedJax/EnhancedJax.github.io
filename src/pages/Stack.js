@@ -7,6 +7,7 @@ const StackPage = () => {
 
     useEffect(() => {
 
+        controls.set("hidden");
         controls.start("visible");
 
     }, []);
