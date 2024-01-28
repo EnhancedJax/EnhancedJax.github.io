@@ -2,45 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  h1 {
-    @apply text-8xl font-extrabold;
-  }
-}
-
-* {
+/* * {
   border: solid 1px red;
-}
+} */
 
 html {
   scroll-behavior: smooth;
+  background-color: #232323;
   ::-webkit-scrollbar {
     display: none;
   }
-}
-
-.text-highlight {
-  background: linear-gradient(180deg, #ff6969 24.77%, #000 85.42%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.notes_dl_item > p:last-child {
-  display: None;
-  color: #fff;
-}
-
-.notes_dl_item:hover {
-  color: var(--color-bg1);
-  box-shadow: inset -7rem 0 1px 0 #000, 0 0px 6px -4px rgba(150, 150, 150, 0.4);
-  border: 1px solid #000;
-}
-
-.notes_dl_item:hover > p:last-child {
-  display: block;
-}
-
-.notes_dl_item:hover > p:nth-child(2) {
-  display: none;
 }

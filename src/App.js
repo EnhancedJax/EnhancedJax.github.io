@@ -1,7 +1,10 @@
 import React from 'react';
 import { Routes, Route, useLocation, useRoutes } from "react-router-dom";
-import Home from './pages/Home';
-import Notes from "./pages/Notes";
+import HomePage from './pages/Home';
+import StackPage from './pages/Stack';
+import NotesPage from './pages/Notes';
+import WorkPage from './pages/Work';
+import AboutPage from './pages/About';
 import { AnimatePresence } from "framer-motion";
 // // import './App.css';
 import styles from "./index.css"
@@ -11,11 +14,23 @@ function App() {
   const element = useRoutes([
     {
       path: "/",
-      element: <Home />
+      element: <HomePage />
     },
     {
       path: "/hkunotes",
-      element: <Notes />
+      element: <NotesPage />
+    },
+    {
+      path: "/stack",
+      element: <StackPage />
+    },
+    {
+      path: "/work",
+      element: <WorkPage />
+    },
+    {
+      path: "/about",
+      element: <AboutPage />
     }
   ]);
 

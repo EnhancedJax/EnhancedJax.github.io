@@ -22,13 +22,14 @@ function List(props) {
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 200, opacity: 0 }}
-                    src={`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${item.year}%20${item.season}/${item.course_code}/${item.course_code}%20Notes.jpg`}
                     alt={item.course_code}
-                    className="flex flex-row justify-between items-center py-3 px-5 gap-4 w-full rounded-lg bg-white border border-neutral-100 cursor-pointer transition ease-out duration-200 notes_dl_item" href={`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${item.year}%20${item.season}/${item.course_code}/${item.course_code}%20Notes.pdf`}
-                >
-                    <p>{item.course_code}</p>
-                    <p>{item.date}</p>
-                    <p>Download</p>
+                    href={`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${item.ayear}%20${item.season}/${item.course_code}/${item.course_code}%20Notes.pdf`}
+                    className="self-stretch p-3 rounded-lg justify-start items-start gap-4 inline-flex">
+                    <div className="w-10 h-10 bg-rose-500 rounded-xl" />
+                    <div className="grow shrink basis-0 flex-col justify-start items-start inline-flex">
+                        <div className="text-gray-200 text-base font-light">{item.course_code}</div>
+                        <div className="self-stretch text-cdarkgray text-base font-light">{item.name}<br />{item.year} {item.season}</div>
+                    </div>
                 </motion.a>
             ))
             }

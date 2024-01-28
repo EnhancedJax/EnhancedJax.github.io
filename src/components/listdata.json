@@ -1,32 +1,37 @@
 [
     {
         "course_code":"MATH1853",
-        "date":"23S1",
-        "year":"1",
-        "season":"Fall"
+        "year":"2023",
+        "ayear":"1",
+        "season":"Fall",
+        "name":"LOREM TEST modern science"
     },
     {
         "course_code":"MATH1851",
-        "date":"24S2",
-        "year":"1",
-        "season":"Spring"
+        "year":"2024",
+        "ayear":"1",
+        "season":"Spring",
+        "name":"LOREM TEST modern science"
     },
     {
         "course_code":"ENGG1340",
-        "date":"24S2",
-        "year":"1",
-        "season":"Spring"
+        "year":"2024",
+        "ayear":"1",
+        "season":"Spring",
+        "name":"LOREM TEST modern science"
     },
     {
         "course_code":"ENGG1300",
-        "date":"24S2",
-        "year":"1",
-        "season":"Spring"
+        "year":"2024",
+        "ayear":"1",
+        "season":"Spring",
+        "name":"LOREM TEST modern science"
     },
     {
         "course_code":"ENGG1320",
-        "date":"24S2",
-        "year":"1",
-        "season":"Spring"
+        "year":"2024",
+        "ayear":"1",
+        "season":"Spring",
+        "name":"LOREM TEST modern science"
     }
 ]

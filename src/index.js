@@ -4,14 +4,15 @@ import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import NavBar from "./components/navbar";
-import PageScrollIndicator from "./components/pagescrollindicator";
+import NavBar from "./components/Navbar";
+// import PageScrollIndicator from "./components/pagescrollindicator";
+import '@fontsource/dm-mono';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <PageScrollIndicator />
+      {/* <PageScrollIndicator /> */}
       <NavBar />
       <App />
     </HashRouter>

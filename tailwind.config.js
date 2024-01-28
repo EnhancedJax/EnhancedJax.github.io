@@ -9,29 +9,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#ff6969'
+        cbg: '#232323',
+        cfg: '#282828',
+        cborder: '#343434',
+        cdarkgray: '#707070',
+        cgray: '#A0A0A0',
+        cpg: '#EDEDED', //paragraph
+        cgreen: '#34D399'
       }
     },
     fontFamily: {
-      // sans: ['"cabinet-grotesk"', 'sans-serif']
-      sans: ['"Red Hat Display"', 'sans-serif']
+      sans: ['"Inter"', 'sans-serif'],
+      mono: ['"DM Mono"', 'sans-serif']
     },
-    screens: {
-      '2xl': { 'max': '1535px' },
-      // => @media (max-width: 1535px) { ... }
-
-      'xl': { 'max': '1279px' },
-      // => @media (max-width: 1279px) { ... }
-
-      'lg': { 'max': '1023px' },
-      // => @media (max-width: 1023px) { ... }
-
-      'md': { 'max': '780px' },
-      // => @media (max-width: 767px) { ... }
-
-      'sm': { 'max': '420px' },
-      // => @media (max-width: 639px) { ... }
-      'tall': { 'raw': '(max-height: 500px)' }
+    fontSize: {
+      'xs': '12px',
+      'sm': '13px',
+      'base': ['15px', '22.5px'],
+      'lg': '20px',
+      'xl': '24px'
     }
   },
   plugins: [],

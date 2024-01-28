@@ -1,23 +1,29 @@
 import React from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
+import { icons } from 'lucide-react';
+import { useLocation } from 'react-router-dom'
 
 function NavBar() {
     return (
-        <div id="navbar" className="p-4 gap-4 fixed flex justify-end items-center w-full z-50">
-            <Button to="/#home">home.</ Button>
-            <Button to="/hkunotes">notes.</ Button>
-            <Button to="/#work">work.</ Button>
-            <Button to="/#contact">contact.</ Button>
-            <Button to="https://github.com/EnhancedJax">github.</ Button>
+        <div id="navbar" className="flex h-16 justify-center items-center gap-6 self-stretch border-cborder border-t bg-cbg fixed bottom-0 w-full lg:top-0 lg:border-r lg:border-t-0 lg:w-16 lg:h-full lg:flex-col">
+            <Button to="/" icon="Home"></ Button>
+            <Button to="/hkunotes" icon="PenLine"></ Button>
+            <Button to="/stack" icon="Layers"></ Button>
+            <Button to="/work" icon="Command"></ Button>
+            <Button to="/about" icon="UserRound"></ Button>
         </div>
     );
 }
 
-function Button({ to, children }) {
+function Button({ to, icon }) {
+    const LucideIcon = icons[icon]
+    const activeColor = '#EDEDED'
+    const inactiveColor = '#707070'
+    const location = useLocation();
+    const isActive = location.pathname === to;
     return (
-        <Link to={to} className="rounded-lg py-[0.125rem] px-4 cursor-pointer bg-white shadow-[inset_0_0_0_0_transparent,0_0px_6px_-4px_rgba(150,150,150,0.4)] border font-extralight border-neutral-100 hover:border-black hover:shadow-[inset_0_-2rem_1px_0_#000,0_0px_6px_-4px_rgba(150,150,150,0.4)] hover:text-neutral-100 transition ease-out duration-200">
-            {children}
-            {/* FIXME:  */}
+        <Link to={to} className="p-3">
+            <LucideIcon size="1.5rem" color={isActive ? activeColor : inactiveColor} />
         </Link>
     );
 }
