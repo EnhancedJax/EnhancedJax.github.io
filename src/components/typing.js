@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Children } from 'react';
 
-
-function TypingText({ text, timeout = 20, onFinish = () => { } }) {
+function Type({ t, d = 20, f = () => { } }) {
     const [charsToShow, setCharsToShow] = useState(0);
+
     useEffect(() => {
-        if (text.length === charsToShow) {
-            onFinish();
+        if (t.length === charsToShow) {
+            f();
             return;
         };
 
-        setTimeout(() => setCharsToShow(n => n + 1), timeout);
+        setTimeout(() => setCharsToShow(n => n + 1), d);
     }, [charsToShow]);
 
 
-    return (<>{text.substring(0, charsToShow)}{text.length === charsToShow ? "" : "|"}</>)
+    return (<>{t.substring(0, charsToShow)}</>)
 }
 
-export default TypingText;
+export default Type;
+

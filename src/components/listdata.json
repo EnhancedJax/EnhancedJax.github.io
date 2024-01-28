@@ -1,32 +1,52 @@
 [
     {
         "course_code":"MATH1853",
-        "date":"23S1",
-        "year":"1",
-        "season":"Fall"
+        "WIP":false,
+        "name":"Linear algebra, probability and statistics",
+        "year":"2023",
+        "season":"Fall",
+        "ayear":"1",
+        "color":"red-300",
+        "icon":"Calculator"
     },
     {
         "course_code":"MATH1851",
-        "date":"24S2",
-        "year":"1",
-        "season":"Spring"
+        "WIP":true,
+        "name":"Calculus and ordinary differential equations",
+        "year":"2024",
+        "season":"Spring",
+        "ayear":"1",
+        "color":"gray-300",
+        "icon":"Calculator"
     },
     {
         "course_code":"ENGG1340",
-        "date":"24S2",
-        "year":"1",
-        "season":"Spring"
+        "WIP":true,
+        "name":"Computer programming II",
+        "year":"2024",
+        "season":"Spring",
+        "ayear":"1",
+        "color":"gray-300",
+        "icon":"Code2"
     },
     {
         "course_code":"ENGG1300",
-        "date":"24S2",
-        "year":"1",
-        "season":"Spring"
+        "WIP":true,
+        "name":"Fundamental mechanics",
+        "year":"2024",
+        "season":"Spring",
+        "ayear":"1",
+        "color":"gray-300",
+        "icon":"School"
     },
     {
         "course_code":"ENGG1320",
-        "date":"24S2",
-        "year":"1",
-        "season":"Spring"
+        "WIP":true,
+        "name":"Engineers in the modern world",
+        "year":"2024",
+        "season":"Spring",
+        "ayear":"1",
+        "color":"gray-300",
+        "icon":"School"
     }
 ]
