@@ -1,17 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionIndicator from '../components/sectionindicator';
+import { motion, useAnimation } from "framer-motion";
 
 const StackPage = () => {
+    const controls = useAnimation();
+
+    useEffect(() => {
+
+        controls.start("visible");
+
+    }, []);
+
+    const fadeInStagger = {
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15
+            }
+        },
+        hidden: {
+            opacity: 0
+        }
+    };
+
+    const fadeIn = {
+        visible: {
+            opacity: 1
+        },
+        hidden: {
+            opacity: 0
+        }
+    };
+
     return (
         <>
             <div className="flex justify-center items-center lg:pl-16">
                 <div className="px-5 pt-10 pb-20 justify-center items-center inline-flex w-full max-w-[610px]">
-                    <div className="w-full flex-col gap-10 flex">
+                    <motion.div
+                        className="w-full flex-col gap-10 flex"
+                        variants={fadeInStagger}
+                        initial="hidden"
+                        animate={controls}
+                    >
                         <div className="pl-3 flex-col justify-center items-start gap-2 flex">
-                            <div className="text-white text-xl font-light">Stack</div>
-                            <div className="text-cgray text-lg font-light">Software products that I use</div>
+                            <motion.div variants={fadeIn} className="text-white text-xl font-light">Stack</motion.div>
+                            <motion.div variants={fadeIn} className="text-cgray text-lg font-light">Software products that I use</motion.div>
                         </div>
-                        <div>
+                        <motion.div variants={fadeIn}>
                             <SectionIndicator>Software</SectionIndicator>
                             <div className="flex gap-3 flex-wrap">
                                 <StackItem name="Arc" type="BROWSER" icon="arc" />
@@ -22,8 +57,8 @@ const StackPage = () => {
                                 <StackItem name="iTerm2" type="TERMINAL" icon="iterm2" />
 
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
         </>

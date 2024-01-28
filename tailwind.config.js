@@ -23,6 +23,7 @@ module.exports = {
       mono: ['"DM Mono"', 'sans-serif']
     },
     fontSize: {
+      'xxs': '10px',
       'xs': '12px',
       'sm': '13px',
       'base': ['15px', '22.5px'],
