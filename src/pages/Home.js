@@ -72,19 +72,19 @@ const HomePage = () => {
 
     return (
         <>
-            <div className="flex justify-center items-center lg:pl-16">
+            <div className="flex items-center justify-center lg:pl-16">
                 <div className="px-5 pt-10 pb-20 justify-center items-center flex max-w-[610px]">
                     <motion.div
-                        className="w-full flex-col justify-start items-center gap-10 flex"
+                        className="flex flex-col items-center justify-start w-full gap-10"
                         variants={fadeInStagger}
                         initial='hidden'
                         animate={controls}
                     >
                         <div
-                            className="self-stretch flex-col justify-start items-center gap-4 flex"
+                            className="flex flex-col items-center self-stretch justify-start gap-4"
                         >
                             <motion.div
-                                className="h-7 text-cdarkgray text-sm font-light font-mono"
+                                className="font-mono text-sm font-light h-7 text-cdarkgray"
                                 variants={fadeIn}
                             >
                                 {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
@@ -95,40 +95,40 @@ const HomePage = () => {
                                 variants={fadeIn}
                             />
                             <motion.div
-                                className="self-stretch flex-col justify-start items-center gap-5 flex"
+                                className="flex flex-col items-center self-stretch justify-start gap-5"
                                 variants={fadeIn}
                             >
                                 <motion.div
-                                    className="self-stretch flex-col justify-center items-center gap-2 flex"
+                                    className="flex flex-col items-center self-stretch justify-center gap-2"
                                     variants={fadeIn}
                                 >
                                     <motion.div
-                                        className="text-white text-xl font-light "
+                                        className="text-xl font-light text-white "
                                         variants={fadeIn}
                                     >
                                         Jax Tam
                                     </motion.div>
                                     <motion.div
-                                        className="text-cgray text-lg font-light "
+                                        className="text-lg font-light text-cgray "
                                         variants={fadeIn}
                                     >
                                         Year 1 student at HKU
                                     </motion.div>
                                 </motion.div>
                                 <motion.div
-                                    className="justify-start items-center gap-4 flex"
+                                    className="flex items-center justify-start gap-4"
                                     variants={fadeIn}
                                 >
                                     <motion.div
-                                        className="w-2 h-2 bg-cgreen rounded-full animate-ping"
+                                        className="w-2 h-2 rounded-full bg-cgreen animate-ping"
                                         variants={fadeIn}
                                     ></motion.div>
                                     <motion.div
-                                        className="w-2 h-2 bg-cgreen rounded-full absolute"
+                                        className="absolute w-2 h-2 rounded-full bg-cgreen"
                                         variants={fadeIn}
                                     ></motion.div>
                                     <motion.div
-                                        className="text-cgray font-light text-base"
+                                        className="text-base font-light text-cgray"
                                         variants={fadeIn}
                                     >
                                         Available for new opportunities
@@ -136,29 +136,29 @@ const HomePage = () => {
                                 </motion.div>
                             </motion.div>
                             <motion.div
-                                className="self-stretch h-12 justify-center items-center gap-5 flex"
+                                className="flex items-center self-stretch justify-center h-12 gap-5"
                                 variants={fadeIn}
                             >
                                 <Github className='text-cdarkgray' />
                                 <Instagram className='text-cdarkgray' />
                             </motion.div>
                             <div
-                                className="w-full flex-col justify-center items-center gap-2 flex md:flex-row md:gap-4 overflow-x-hidden"
+                                className="flex flex-col items-center justify-center w-full gap-2 overflow-x-hidden md:flex-row md:gap-4"
                             >
                                 <motion.div
                                     className="self-stretch h-[38px] px-11 py-2 bg-white rounded-lg justify-center items-center gap-2.5 flex"
                                     variants={slideLeft}
                                 >
                                     <motion.div
-                                        className="text-cbg font-light text-base"
+                                        className="text-base font-light text-cbg"
                                         variants={fadeIn}
                                     >
                                         Contact me
                                     </motion.div>
-                                    <Mail className='text-cdarkgray w-5 h-5' />
+                                    <Mail className='w-5 h-5 text-cdarkgray' />
                                 </motion.div>
                                 <motion.div
-                                    className="text-cgray font-light "
+                                    className="font-light text-cgray "
                                     variants={fadeIn}
                                 >
                                     or
@@ -168,19 +168,19 @@ const HomePage = () => {
                                     variants={slideRight}
                                 >
                                     <motion.div
-                                        className="text-white font-light text-base"
+                                        className="text-base font-light text-white"
                                         variants={fadeIn}
                                     >
                                         Copy email
                                     </motion.div>
-                                    <Copy className='text-cdarkgray w-5 h-5' />
+                                    <Copy className='w-5 h-5 text-cdarkgray' />
                                 </motion.div>
                             </div>
                             <div
                                 className="self-stretch h-10 p-2.5 flex-col justify-center items-center gap-2.5 flex"
                             >
                                 <motion.div
-                                    className="text-cdarkgray text-sm font-light font-mono text-center"
+                                    className="font-mono text-sm font-light text-center text-cdarkgray"
                                     variants={fadeIn}
                                 >
                                     NT, HK ⋅ 22.2849° N, 114.1376° W
@@ -190,7 +190,7 @@ const HomePage = () => {
                         <motion.div variants={fadeIn}>
                             <SectionIndicator>About</SectionIndicator>
                             <div
-                                className="self-stretch text-gray-200 font-light text-base">I'm Jax, a year 1 student studying at The University of Hong Kong.<br /><br />My passion is to deliver clean designs and user-oriented experiences that exceed expectations.<br /><br />I believe my attention to detail and dedication to excellence will allow me to thrive in the future.
+                                className="self-stretch text-base font-light text-gray-200">I'm Jax, a year 1 student studying at The University of Hong Kong.<br /><br />My passion is to deliver clean designs and user-oriented experiences that exceed expectations.<br /><br />I believe my attention to detail and dedication to excellence will allow me to thrive in the future.
                             </div>
                         </motion.div>
                     </motion.div>

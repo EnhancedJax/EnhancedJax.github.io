@@ -34,15 +34,15 @@ const AboutPage = () => {
     };
     return (
         <>
-            <div className="flex justify-center items-center lg:pl-16">
+            <div className="flex items-center justify-center lg:pl-16">
                 <div className="px-5 pt-10 pb-20 justify-center items-center inline-flex max-w-[610px]">
                     <motion.div
-                        className="grow shrink basis-0 self-stretch flex-col justify-start items-center gap-10 inline-flex"
+                        className="inline-flex flex-col items-center self-stretch justify-start gap-10 grow shrink basis-0"
                         variants={fadeInStagger}
                         initial="hidden"
                         animate={controls}
                     >
-                        <motion.div variants={fadeIn} className="text-white text-xl font-light">WIP</motion.div>
+                        <motion.div variants={fadeIn} className="text-xl font-light text-white">WIP</motion.div>
                     </motion.div>
                 </div>
             </div>

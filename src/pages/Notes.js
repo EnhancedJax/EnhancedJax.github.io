@@ -47,12 +47,12 @@ function NotesPage() {
 
     return (
         <>
-            <div className="lg:pl-16 flex-row flex h-screen">
+            <div className="flex flex-row h-screen lg:pl-16">
                 <div className="px-5 pt-10 pb-20 w-full lg:w-[340px] lg:min-w-[340px] lg:border-r lg:border-r-cborder">
-                    <div className="w-full flex-col gap-10 flex">
-                        <div className="pl-3 flex-col justify-center gap-2 flex">
-                            <div className="text-white text-xl font-light lg:text-base">My University Notes</div>
-                            <div className="text-cgray text-lg font-light lg:text-base">Typed with LaTeX.</div>
+                    <div className="flex flex-col w-full gap-10">
+                        <div className="flex flex-col justify-center gap-2 pl-3">
+                            <div className="text-xl font-light text-white lg:text-base">My University Notes</div>
+                            <div className="text-lg font-light text-cgray lg:text-base">Typed with LaTeX.</div>
                         </div>
                         <div className="self-stretch h-[466px] flex-col justify-start items-start gap-3 flex">
                             <input
@@ -66,7 +66,7 @@ function NotesPage() {
                         </div>
                     </div>
                 </div>
-                <div className='hidden lg:block w-full h-full'>
+                <div className='hidden w-full h-full lg:block'>
                     <iframe src={iframeUrl} width="100%" height="100%" />
                 </div>
             </div>
