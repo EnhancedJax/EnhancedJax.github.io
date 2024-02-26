@@ -30,19 +30,19 @@
         "icon":"Code2"
     },
     {
-        "course_code":"ENGG1300",
+        "course_code":"ENGG1340-CPP",
         "WIP":true,
-        "name":"Fundamental mechanics",
+        "name":"Computer programming II - C++",
         "year":"2024",
         "season":"Spring",
         "ayear":"1",
         "color":"gray-300",
-        "icon":"School"
+        "icon":"Code2"
     },
     {
-        "course_code":"ENGG1320",
+        "course_code":"ENGG1300",
         "WIP":true,
-        "name":"Engineers in the modern world",
+        "name":"Fundamental mechanics",
         "year":"2024",
         "season":"Spring",
         "ayear":"1",
