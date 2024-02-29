@@ -16,10 +16,10 @@ function List(props) {
         }
     })
 
-    const handleItemClick = (ayear, season, course_code) => {
+    const handleItemClick = (ayear, season, folder, course_code) => {
         const url = `./notes/${course_code}.pdf`;
         if (window.innerWidth <= 1024) {
-            window.open(`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${ayear}%20${season}/${course_code}/${course_code}%20Notes.pdf`, '_blank');
+            window.open(`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${ayear}%20${season}/${folder}/${course_code}%20Notes.pdf`, '_blank');
         } else {
             props.onItemClick(url);
         }
@@ -39,14 +39,14 @@ function List(props) {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 200, opacity: 0 }}
                     alt={item.course_code}
-                    onClick={() => handleItemClick(item.ayear, item.season, item.course_code)}
+                    onClick={() => handleItemClick(item.ayear, item.season, item.folder, item.course_code)}
                     className={`w-full p-3 rounded-lg justify-start items-start gap-4 inline-flex  ${selectedItem === item.course_code ? 'bg-cfg' : 'hover:bg-cfg'}`}>
                     <div className={`w-10 h-10 ${item.WIP ? 'bg-red-500 opacity-70' : 'bg-cborder'} rounded-xl flex items-center justify-center ${selectedItem === item.course_code ? 'border-2 border-cgray' : ''}`}>
                         <Icon name={item.icon} size="1rem" color="#FFF" />
                     </div>
-                    <div className="grow shrink basis-0 flex-col justify-start items-start inline-flex">
-                        <div className="text-gray-200 text-base font-light">{item.course_code} {item.WIP ? '(WIP)' : ''}</div>
-                        <div className="self-stretch text-cdarkgray text-base font-light text-left">{item.name}<br />{item.year} {item.season}</div>
+                    <div className="inline-flex flex-col items-start justify-start grow shrink basis-0">
+                        <div className="text-base font-light text-gray-200">{item.course_code} {item.WIP ? '(WIP)' : ''}</div>
+                        <div className="self-stretch text-base font-light text-left text-cdarkgray">{item.name}<br />{item.year} {item.season}</div>
                     </div>
                 </motion.button>
             ))}
