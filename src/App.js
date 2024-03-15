@@ -6,7 +6,6 @@ import NotesPage from './pages/Notes';
 import WorkPage from './pages/Work';
 import AboutPage from './pages/About';
 import { AnimatePresence } from "framer-motion";
-// // import './App.css';
 import styles from "./index.css"
 
 
