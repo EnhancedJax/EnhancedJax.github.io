@@ -148,6 +148,7 @@ const HomePage = () => {
                                 <motion.div
                                     className="self-stretch h-[38px] px-11 py-2 bg-white rounded-lg justify-center items-center gap-2.5 flex"
                                     variants={slideLeft}
+                                    onClick={() => window.open('mailto:tam.lyt@gmail.com')}
                                 >
                                     <motion.div
                                         className="text-base font-light text-cbg"
@@ -166,6 +167,7 @@ const HomePage = () => {
                                 <motion.div
                                     className="self-stretch h-[38px] px-11 py-2 bg-cfg rounded-lg border border-cborder justify-center items-center gap-2.5 flex"
                                     variants={slideRight}
+                                    onClick={() => navigator.clipboard.writeText('tam.lyt@gmail.com')}
                                 >
                                     <motion.div
                                         className="text-base font-light text-white"
