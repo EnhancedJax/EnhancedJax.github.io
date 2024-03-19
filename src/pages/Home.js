@@ -1,6 +1,6 @@
 import { Github, Instagram, Mail, Copy } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from "framer-motion";
+import { motion, spring, useAnimation } from "framer-motion";
 import headerImage from '../img/headericon.jpg';
 import SectionIndicator from '../components/sectionindicator';
 
@@ -135,19 +135,29 @@ const HomePage = () => {
                                     </motion.div>
                                 </motion.div>
                             </motion.div>
-                            <motion.div
-                                className="flex items-center self-stretch justify-center h-12 gap-5"
-                                variants={fadeIn}
-                            >
-                                <Github className='cursor-pointer text-cdarkgray' onClick={() => window.open('https://github.com/EnhancedJax')} />
-                                <Instagram className='cursor-pointer text-cdarkgray' onClick={() => window.open('https://www.instagram.com/enhancedjax/')} />
-                            </motion.div>
                             <div
-                                className="flex flex-col items-center justify-center w-full gap-2 overflow-x-hidden md:flex-row md:gap-4"
+                                className="flex items-center self-stretch justify-center h-12 gap-5"
+                            >
+                                <motion.div
+                                    variants={fadeIn}
+                                    whileHover={{ scale: 1.05, translateY: -2 }}
+                                >
+                                    <Github className='cursor-pointer text-cdarkgray' onClick={() => window.open('https://github.com/EnhancedJax')} />
+                                </motion.div>
+                                <motion.div
+                                    variants={fadeIn}
+                                    whileHover={{ scale: 1.05, translateY: -2 }}
+                                >
+                                    <Instagram className='cursor-pointer text-cdarkgray' onClick={() => window.open('https://www.instagram.com/enhancedjax/')} />
+                                </motion.div>
+                            </div>
+                            <div
+                                className="flex flex-col items-center justify-center w-full gap-2 md:flex-row md:gap-4"
                             >
                                 <motion.div
                                     className="self-stretch h-[38px] px-11 py-2 cursor-pointer bg-white rounded-lg justify-center items-center gap-2.5 flex"
                                     variants={slideLeft}
+                                    whileHover={{ scale: 1.05, translateY: -5 }}
                                     onClick={() => window.open('mailto:tam.lyt@gmail.com')}
                                 >
                                     <motion.div
@@ -167,6 +177,7 @@ const HomePage = () => {
                                 <motion.div
                                     className="self-stretch h-[38px] px-11 py-2 cursor-pointer bg-cfg rounded-lg border border-cborder justify-center items-center gap-2.5 flex"
                                     variants={slideRight}
+                                    whileHover={{ scale: 1.05, translateY: -5 }}
                                     onClick={() => navigator.clipboard.writeText('tam.lyt@gmail.com')}
                                 >
                                     <motion.div
@@ -197,7 +208,7 @@ const HomePage = () => {
                         </motion.div>
                     </motion.div>
 
-                </div>
+                </div >
             </div >
         </>
     );
