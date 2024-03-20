@@ -5,7 +5,7 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class
   mode: 'jit',
-  // purge: ['./src/**/*.{js}', './public/index.html'],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
     extend: {
       colors: {
@@ -15,7 +15,9 @@ module.exports = {
         cdarkgray: '#707070',
         cgray: '#A0A0A0',
         cpg: '#EDEDED', //paragraph
-        cgreen: '#34D399'
+        cgreen: '#34D399',
+        clblue: '#35CEFF',
+        cyellow: '#FFC657'
       }
     },
     fontFamily: {

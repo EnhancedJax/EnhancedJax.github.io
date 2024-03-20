@@ -1,56 +1,46 @@
 [
     {
         "course_code":"MATH1853",
-        "folder":"MATH1853",
         "WIP":false,
         "name":"Linear algebra, probability and statistics",
         "year":"2023",
         "season":"Fall",
-        "ayear":"1",
         "color":"red-300",
         "icon":"Calculator"
     },
     {
         "course_code":"MATH1851",
-        "folder":"MATH1851",
         "WIP":true,
         "name":"Calculus and ordinary differential equations",
         "year":"2024",
         "season":"Spring",
-        "ayear":"1",
         "color":"gray-300",
         "icon":"Calculator"
     },
     {
         "course_code":"ENGG1340",
-        "folder":"ENGG1340",
         "WIP":true,
         "name":"Computer programming II",
         "year":"2024",
         "season":"Spring",
-        "ayear":"1",
         "color":"gray-300",
         "icon":"Code2"
     },
     {
         "course_code":"ENGG1340-CPP",
-        "folder":"ENGG1340",
         "WIP":true,
         "name":"Computer programming II - C++",
         "year":"2024",
         "season":"Spring",
-        "ayear":"1",
         "color":"gray-300",
         "icon":"Code2"
     },
     {
         "course_code":"ENGG1300",
-        "folder":"ENGG1300",
         "WIP":true,
         "name":"Fundamental mechanics",
         "year":"2024",
         "season":"Spring",
-        "ayear":"1",
         "color":"gray-300",
         "icon":"School"
     }

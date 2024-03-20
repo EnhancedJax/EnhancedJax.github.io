@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SectionIndicator from '../components/sectionindicator';
 import { motion, useAnimation } from "framer-motion";
+import { GitPullRequestCreateArrow } from 'lucide-react';
 
 const StackPage = () => {
     const controls = useAnimation();
@@ -48,15 +49,43 @@ const StackPage = () => {
                             <motion.div variants={fadeIn} className="text-lg font-light text-cgray">Software products that I use</motion.div>
                         </div>
                         <motion.div variants={fadeIn}>
+                            <SectionIndicator>Skill set</SectionIndicator>
+                            <div className="flex flex-wrap gap-3">
+                                <SkillItem name="Git Version Control" description="Branching, PRs, collaboration">
+                                    <GitPullRequestCreateArrow size={32} className='text-cpg' />
+                                </SkillItem>
+                                <SkillItem name="Web development" description="Front-end focused, user-experience oriented">
+                                    <GitPullRequestCreateArrow size={32} className='text-cpg' />
+                                </SkillItem>
+                                <SkillItem name="Flat design" description="Graphic design (posters, banner etc.), UI (Figma)">
+                                    <GitPullRequestCreateArrow size={32} className='text-cpg' />
+                                </SkillItem>
+                                <SkillItem name="Photography" description="Is simply capturing moments of sound">
+                                    <GitPullRequestCreateArrow size={32} className='text-cpg' />
+                                </SkillItem>
+                            </div>
+                        </motion.div>
+                        <motion.div variants={fadeIn}>
+                            <SectionIndicator>Technologies</SectionIndicator>
+
+                            <div className="flex flex-col w-full gap-3 p-3 px-6 py-4 rounded-lg bg-cfg">
+                                <LangItem name="HTML5" prog="9" level="2" />
+                                <LangItem name="Tailwind CSS" prog="8" level="2" />
+                                <LangItem name="Python" prog="7" level="2" />
+                                <LangItem name="C++" prog="7" level="2" />
+                                <LangItem name="React.js" prog="7" level="1" />
+                                <LangItem name="React Native" prog="5" level="0" />
+                            </ div>
+                        </motion.div>
+                        <motion.div variants={fadeIn}>
                             <SectionIndicator>Software</SectionIndicator>
                             <div className="flex flex-wrap gap-3">
-                                <StackItem name="Arc" type="BROWSER" icon="arc" />
-                                <StackItem name="Notion" type="PRODUCTIVITY" icon="notion" />
-                                <StackItem name="Spotify" type="MUSIC" icon="spotify" />
-                                <StackItem name="VSCode" type="CODE" icon="vscode" />
-                                <StackItem name="Github Copilot" type="AI" icon="copliot" />
-                                <StackItem name="iTerm2" type="TERMINAL" icon="iterm2" />
-
+                                <SoftwareItem name="Arc" type="BROWSER" icon="arc" />
+                                <SoftwareItem name="Github Copilot" type="AI" icon="copilot" />
+                                <SoftwareItem name="Notion" type="PRODUCTIVITY" icon="notion" />
+                                <SoftwareItem name="VSCode" type="CODE" icon="vscode" />
+                                <SoftwareItem name="Raycast" type="PRODUCTIVITYp" icon="raycast" />
+                                <SoftwareItem name="iTerm2" type="TERMINAL" icon="iterm2" />
                             </div>
                         </motion.div>
                     </motion.div>
@@ -66,7 +95,37 @@ const StackPage = () => {
     )
 }
 
-const StackItem = ({ name, type, icon }) => {
+const LangItem = ({ name, prog, level }) => {
+    const progType = ["Proficient", "Fluent", "Advanced"];
+    const progColor = ["yellow", "lblue", "green"];
+    return (
+        <div className='flex items-center justify-between w-full'>
+            <p className='text-base font-light text-cpg'>{name}</p>
+            <div className='inline-flex items-center gap-4'>
+                <div className='inline-flex justify-end w-32 h-2 rounded-lg bg-cborder'>
+                    <div className={`h-full bg-c${progColor[level]} rounded-lg`} style={{ width: `${prog * 10}%` }} />
+                </div>
+                <p className={`w-20 px-2 py-1 font-medium text-center bg-opacity-50 text-xs rounded-3xl text-c${progColor[level]} bg-c${progColor[level]}`}>{progType[level]}</p>
+            </div>
+        </div>
+    )
+}
+
+const SkillItem = ({ children, name, description }) => {
+    return (
+        <div className="basis-[264px] grow h-[111px] p-4 bg-cfg rounded-lg justify-center items-center inline-flex gap-3">
+            <div className="flex items-center justify-center w-[32px] px-2">
+                {children}
+            </div>
+            <div className="inline-flex flex-col items-start justify-center grow shrink basis-0">
+                <div className="text-base font-normal text-white">{name}</div>
+                <div className="text-sm font-light text-cgray">{description}</div>
+            </div>
+        </div>
+    )
+}
+
+const SoftwareItem = ({ name, type, icon }) => {
     return (
         <div className="basis-[140px] grow h-[230px] p-3 bg-cfg rounded-lg flex-col gap-2.5 flex">
             <div className="justify-center items-center gap-2.5 flex w-full h-full">
@@ -78,7 +137,7 @@ const StackItem = ({ name, type, icon }) => {
                 </div>
                 <div className="text-base font-light text-white">{name}</div>
             </div>
-        </div >
+        </ div>
     )
 }
 

@@ -16,10 +16,10 @@ function List(props) {
         }
     })
 
-    const handleItemClick = (ayear, season, folder, course_code) => {
+    const handleItemClick = (course_code) => {
         const url = `./notes/${course_code}.pdf`;
         if (window.innerWidth <= 1024) {
-            window.open(`https://raw.githubusercontent.com/EnhancedJax/Study-Materials/master/Year%20${ayear}%20${season}/${folder}/${course_code}%20Notes.pdf`, '_blank');
+            window.open(url);
         } else {
             props.onItemClick(url);
         }
@@ -39,7 +39,7 @@ function List(props) {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 200, opacity: 0 }}
                     alt={item.course_code}
-                    onClick={() => handleItemClick(item.ayear, item.season, item.folder, item.course_code)}
+                    onClick={() => handleItemClick(item.course_code)}
                     className={`w-full p-3 rounded-lg justify-start items-start gap-4 inline-flex  ${selectedItem === item.course_code ? 'bg-cfg' : 'hover:bg-cfg'}`}>
                     <div className={`w-10 h-10 ${item.WIP ? 'bg-red-500 opacity-70' : 'bg-cborder'} rounded-xl flex items-center justify-center ${selectedItem === item.course_code ? 'border-2 border-cgray' : ''}`}>
                         <Icon name={item.icon} size="1rem" color="#FFF" />

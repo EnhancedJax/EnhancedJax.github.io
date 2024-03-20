@@ -1,6 +1,6 @@
-import { Github, Instagram, Mail, Copy } from 'lucide-react';
+import { Github, Instagram, Mail, Copy, FileDown, Figma } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
-import { motion, spring, useAnimation } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import headerImage from '../img/headericon.jpg';
 import SectionIndicator from '../components/sectionindicator';
 
@@ -135,22 +135,31 @@ const HomePage = () => {
                                     </motion.div>
                                 </motion.div>
                             </motion.div>
-                            <div
+                            <motion.div
+                                variants={fadeIn}
                                 className="flex items-center self-stretch justify-center h-12 gap-5"
                             >
                                 <motion.div
-                                    variants={fadeIn}
                                     whileHover={{ scale: 1.05, translateY: -2 }}
                                 >
                                     <Github className='cursor-pointer text-cdarkgray' onClick={() => window.open('https://github.com/EnhancedJax')} />
                                 </motion.div>
                                 <motion.div
-                                    variants={fadeIn}
                                     whileHover={{ scale: 1.05, translateY: -2 }}
                                 >
                                     <Instagram className='cursor-pointer text-cdarkgray' onClick={() => window.open('https://www.instagram.com/enhancedjax/')} />
                                 </motion.div>
-                            </div>
+                                <motion.div
+                                    whileHover={{ scale: 1.05, translateY: -2 }}
+                                >
+                                    <FileDown className='cursor-pointer text-cdarkgray' onClick={() => window.open('/notes/Resume.pdf')} />
+                                </motion.div>
+                                <motion.div
+                                    whileHover={{ scale: 1.05, translateY: -2 }}
+                                >
+                                    <Figma className='cursor-pointer text-cdarkgray' onClick={() => window.open('https://www.figma.com/file/jweQFqBujsTKhL6Zw44MON/Design?type=design&node-id=4%3A2&mode=design&t=O2Vfu63nmrOhawVX-1')} />
+                                </motion.div>
+                            </motion.div>
                             <div
                                 className="flex flex-col items-center justify-center w-full gap-2 md:flex-row md:gap-4"
                             >
