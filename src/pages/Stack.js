@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SectionIndicator from '../components/sectionindicator';
 import { motion, useAnimation } from "framer-motion";
-import { GitPullRequestCreateArrow } from 'lucide-react';
+import { Frame, GitPullRequestCreateArrow, Globe, Paintbrush } from 'lucide-react';
 
 const StackPage = () => {
     const controls = useAnimation();
@@ -55,13 +55,13 @@ const StackPage = () => {
                                     <GitPullRequestCreateArrow size={32} className='text-cpg' />
                                 </SkillItem>
                                 <SkillItem name="Web development" description="Front-end focused, user-experience oriented">
-                                    <GitPullRequestCreateArrow size={32} className='text-cpg' />
+                                    <Globe size={32} className='text-cpg' />
                                 </SkillItem>
                                 <SkillItem name="Flat design" description="Graphic design (posters, banner etc.), UI (Figma)">
-                                    <GitPullRequestCreateArrow size={32} className='text-cpg' />
+                                    <Paintbrush size={32} className='text-cpg' />
                                 </SkillItem>
                                 <SkillItem name="Photography" description="Is simply capturing moments of sound">
-                                    <GitPullRequestCreateArrow size={32} className='text-cpg' />
+                                    <Frame size={32} className='text-cpg' />
                                 </SkillItem>
                             </div>
                         </motion.div>
@@ -80,12 +80,12 @@ const StackPage = () => {
                         <motion.div variants={fadeIn}>
                             <SectionIndicator>Software</SectionIndicator>
                             <div className="flex flex-wrap gap-3">
-                                <SoftwareItem name="Arc" type="BROWSER" icon="arc" />
-                                <SoftwareItem name="Github Copilot" type="AI" icon="copilot" />
-                                <SoftwareItem name="Notion" type="PRODUCTIVITY" icon="notion" />
-                                <SoftwareItem name="VSCode" type="CODE" icon="vscode" />
-                                <SoftwareItem name="Raycast" type="PRODUCTIVITYp" icon="raycast" />
-                                <SoftwareItem name="iTerm2" type="TERMINAL" icon="iterm2" />
+                                <SoftwareItem name="Arc" type="BROWSER" icon="arcicon" />
+                                <SoftwareItem name="Github Copilot" type="AI" icon="copiloticon" />
+                                <SoftwareItem name="Notion" type="MANAGEMENT" icon="notionicon" />
+                                <SoftwareItem name="VSCode" type="CODE" icon="vscodeicon" />
+                                <SoftwareItem name="Raycast" type="PRODUCTIVITY" icon="raycasticon" />
+                                <SoftwareItem name="iTerm2" type="TERMINAL" icon="iterm2icon" />
                             </div>
                         </motion.div>
                     </motion.div>
@@ -97,15 +97,15 @@ const StackPage = () => {
 
 const LangItem = ({ name, prog, level }) => {
     const progType = ["Proficient", "Fluent", "Advanced"];
-    const progColor = ["yellow", "lblue", "green"];
+    const progColor = ["#FFC657", "#35CEFF", "#34D399"];
     return (
         <div className='flex items-center justify-between w-full'>
             <p className='text-base font-light text-cpg'>{name}</p>
             <div className='inline-flex items-center gap-4'>
                 <div className='inline-flex justify-end w-32 h-2 rounded-lg bg-cborder'>
-                    <div className={`h-full bg-c${progColor[level]} rounded-lg`} style={{ width: `${prog * 10}%` }} />
+                    <div className="h-full rounded-lg" style={{ width: `${prog * 10}%`, backgroundColor: progColor[level] }} />
                 </div>
-                <p className={`w-20 px-2 py-1 font-medium text-center bg-opacity-50 text-xs rounded-3xl text-c${progColor[level]} bg-c${progColor[level]}`}>{progType[level]}</p>
+                <p className="w-20 px-2 py-1 text-xs font-medium text-center rounded-3xl" style={{ backgroundColor: progColor[level] + '80', color: progColor[level] }}>{progType[level]}</p>
             </div>
         </div>
     )
