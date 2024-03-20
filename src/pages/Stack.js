@@ -80,12 +80,12 @@ const StackPage = () => {
                         <motion.div variants={fadeIn}>
                             <SectionIndicator>Software</SectionIndicator>
                             <div className="flex flex-wrap gap-3">
-                                <SoftwareItem name="Arc" type="BROWSER" icon="arcicon" />
-                                <SoftwareItem name="Github Copilot" type="AI" icon="copiloticon" />
-                                <SoftwareItem name="Notion" type="MANAGEMENT" icon="notionicon" />
-                                <SoftwareItem name="VSCode" type="CODE" icon="vscodeicon" />
-                                <SoftwareItem name="Raycast" type="PRODUCTIVITY" icon="raycasticon" />
-                                <SoftwareItem name="iTerm2" type="TERMINAL" icon="iterm2icon" />
+                                <SoftwareItem name="Arc" type="BROWSER" icon="arc" />
+                                <SoftwareItem name="Github Copilot" type="AI" icon="copilot" />
+                                <SoftwareItem name="Notion" type="MANAGEMENT" icon="notion" />
+                                <SoftwareItem name="VSCode" type="CODE" icon="vscode" />
+                                <SoftwareItem name="Raycast" type="PRODUCTIVITY" icon="raycast" />
+                                <SoftwareItem name="iTerm2" type="TERMINAL" icon="iterm2" />
                             </div>
                         </motion.div>
                     </motion.div>
