@@ -47,8 +47,8 @@ function NotesPage() {
 
     return (
         <>
-            <div className="flex flex-row h-screen lg:pl-16">
-                <div className="px-5 pt-10 pb-20 w-full lg:w-[340px] lg:min-w-[340px] lg:border-r lg:border-r-cborder">
+            <div className="flex flex-row justify-center h-screen lg:pl-16">
+                <div className="px-5 pt-10 pb-20 w-full lg:w-[340px] lg:min-w-[340px] lg:border-r lg:border-r-cborder max-w-[610px] ">
                     <motion.div className="flex flex-col w-full gap-10"
                         variants={fadeInStagger}
                         initial="hidden"
