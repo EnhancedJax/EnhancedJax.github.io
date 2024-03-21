@@ -166,8 +166,9 @@ const HomePage = () => {
                                 <motion.div
                                     className="self-stretch h-[38px] px-11 py-2 cursor-pointer bg-white rounded-lg justify-center items-center gap-2.5 flex"
                                     variants={slideLeft}
-                                    whileHover={{ scale: 1.05, translateY: -5 }}
-                                    onClick={() => window.open('mailto:tam.lyt@gmail.com')}
+                                    whileHover={{ scale: 1.05, translateY: -4 }}
+                                    whileTap={{ scale: 0.95, translateY: -2 }}
+                                    onClick={() => window.open('mailto:jax.lytam@gmail.com')}
                                 >
                                     <motion.div
                                         className="text-base font-light text-cbg"
@@ -187,7 +188,8 @@ const HomePage = () => {
                                     className="self-stretch h-[38px] px-11 py-2 cursor-pointer bg-cfg rounded-lg border border-cborder justify-center items-center gap-2.5 flex"
                                     variants={slideRight}
                                     whileHover={{ scale: 1.05, translateY: -5 }}
-                                    onClick={() => navigator.clipboard.writeText('tam.lyt@gmail.com')}
+                                    whileTap={{ scale: 0.95, translateY: -2 }}
+                                    onClick={() => navigator.clipboard.writeText('jax.lytam@gmail.com')}
                                 >
                                     <motion.div
                                         className="text-base font-light text-white"

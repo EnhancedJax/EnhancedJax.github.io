@@ -39,6 +39,9 @@ function List(props) {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 200, opacity: 0 }}
                     alt={item.course_code}
+
+                    whileHover={{ scale: 1.02, translateX: 10 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => handleItemClick(item.course_code)}
                     className={`w-full p-3 rounded-lg justify-start items-start gap-4 inline-flex  ${selectedItem === item.course_code ? 'bg-cfg' : 'hover:bg-cfg'}`}>
                     <div className={`w-10 h-10 ${item.WIP ? 'bg-red-500 opacity-70' : 'bg-cborder'} rounded-xl flex items-center justify-center ${selectedItem === item.course_code ? 'border-2 border-cgray' : ''}`}>

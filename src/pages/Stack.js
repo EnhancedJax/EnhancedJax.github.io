@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import SectionIndicator from '../components/sectionindicator';
 import { motion, useAnimation } from "framer-motion";
-import { Frame, GitPullRequestCreateArrow, Globe, Paintbrush } from 'lucide-react';
+import Icon from '../components/icon';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const StackPage = () => {
     const controls = useAnimation();
@@ -46,36 +48,33 @@ const StackPage = () => {
                     >
                         <div className="flex flex-col items-start justify-center gap-2 pl-3">
                             <motion.div variants={fadeIn} className="text-xl font-light text-white">Stack</motion.div>
-                            <motion.div variants={fadeIn} className="text-lg font-light text-cgray">Software products that I use</motion.div>
+                            <motion.div variants={fadeIn} className="text-lg font-light text-cgray">My skills, technologies, tools and apps</motion.div>
                         </div>
                         <motion.div variants={fadeIn}>
-                            <SectionIndicator>Skill set</SectionIndicator>
+                            <SectionIndicator>Skills</SectionIndicator>
                             <div className="flex flex-wrap gap-3">
-                                <SkillItem name="Git Version Control" description="Branching, PRs, collaboration">
-                                    <GitPullRequestCreateArrow size={32} className='text-cpg' />
-                                </SkillItem>
-                                <SkillItem name="Web development" description="Front-end focused, user-experience oriented">
-                                    <Globe size={32} className='text-cpg' />
-                                </SkillItem>
-                                <SkillItem name="Flat design" description="Graphic design (posters, banner etc.), UI (Figma)">
-                                    <Paintbrush size={32} className='text-cpg' />
-                                </SkillItem>
-                                <SkillItem name="Photography" description="Is simply capturing moments of sound">
-                                    <Frame size={32} className='text-cpg' />
-                                </SkillItem>
+                                <SkillItem icon="Globe" name="Web development" description="Front-end focused, user-experience oriented" />
+                                <SkillItem icon="Paintbrush" name="Flat design" description="Graphic design (posters, banner etc.), UI (Figma)" />
+                                <SkillItem icon="GitPullRequestCreateArrow" name="Git Version Control" description="Branching, PRs, collaboration" />
+                                <SkillItem icon="Frame" name="Photography" description="Is simply capturing moments of sound" />
                             </div>
                         </motion.div>
                         <motion.div variants={fadeIn}>
                             <SectionIndicator>Technologies</SectionIndicator>
 
-                            <div className="flex flex-col w-full gap-3 p-3 px-6 py-4 rounded-lg bg-cfg">
+                            <motion.div
+
+                                variants={fadeInStagger}
+                                initial="hidden"
+                                animate={controls}
+                                className="flex flex-col w-full gap-3 p-3 px-6 py-4 rounded-lg bg-cfg">
                                 <LangItem name="HTML5" prog="9" level="2" />
                                 <LangItem name="Tailwind CSS" prog="8" level="2" />
                                 <LangItem name="Python" prog="7" level="2" />
                                 <LangItem name="C++" prog="7" level="2" />
                                 <LangItem name="React.js" prog="7" level="1" />
                                 <LangItem name="React Native" prog="5" level="0" />
-                            </ div>
+                            </motion.div>
                         </motion.div>
                         <motion.div variants={fadeIn}>
                             <SectionIndicator>Software</SectionIndicator>
@@ -101,21 +100,28 @@ const LangItem = ({ name, prog, level }) => {
     return (
         <div className='flex items-center justify-between w-full'>
             <p className='text-base font-light text-cpg'>{name}</p>
-            <div className='inline-flex items-center gap-4'>
-                <div className='inline-flex justify-end w-32 h-2 rounded-lg bg-cborder'>
+            <div className='inline-flex items-center gap-3 sm:gap-4'>
+                <div className='justify-end hidden w-32 h-2 rounded-lg sm:inline-flex bg-cborder'>
                     <div className="h-full rounded-lg" style={{ width: `${prog * 10}%`, backgroundColor: progColor[level] }} />
                 </div>
+                <div className='w-6 h-6 sm:hidden'>
+                    <CircularProgressbar value={prog} maxValue={10} strokeWidth={14} styles={buildStyles({
+                        pathColor: progColor[level],
+                        trailColor: progColor[level] + '40'
+                    })} />
+                </div>
+
                 <p className="w-20 px-2 py-1 text-xs font-medium text-center rounded-3xl" style={{ backgroundColor: progColor[level] + '80', color: progColor[level] }}>{progType[level]}</p>
             </div>
         </div>
     )
 }
 
-const SkillItem = ({ children, name, description }) => {
+const SkillItem = ({ icon, name, description }) => {
     return (
         <div className="basis-[264px] grow h-[111px] p-4 bg-cfg rounded-lg justify-center items-center inline-flex gap-3">
             <div className="flex items-center justify-center w-[32px] px-2">
-                {children}
+                <Icon name={icon} size={32} color='#FFF' />
             </div>
             <div className="inline-flex flex-col items-start justify-center grow shrink basis-0">
                 <div className="text-base font-normal text-white">{name}</div>
