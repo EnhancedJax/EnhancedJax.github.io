@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        cread: '#1C1C1C',
         cbg: '#232323',
         cfg: '#282828',
         cborder: '#343434',

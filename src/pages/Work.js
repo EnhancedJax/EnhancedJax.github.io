@@ -2,16 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from "framer-motion";
 import SectionIndicator from '../components/sectionindicator';
 import { ArrowRightCircle } from 'lucide-react';
+import { getPosts, getPostDetails } from '../services';
+import PostDetail from '../components/PostDetail';
 
 const WorkPage = () => {
-    const controls = useAnimation();
+    const [posts, setPosts] = useState([]);
+    const [activePost, setActivePost] = useState([]);
 
     useEffect(() => {
+        const fetchAllPost = async () => {
+            const fetchedPosts = (await getPosts()) || [];
+            setPosts(fetchedPosts);
+            const fetchLatestDetails = (await getPostDetails(fetchedPosts[0].node.slug)) || [];
+            setActivePost(fetchLatestDetails);
+            // console.log("activePost: ", activePost);
+        };
 
         controls.set("hidden");
+        fetchAllPost();
         controls.start("visible");
-
     }, []);
+
+    const controls = useAnimation();
 
     const fadeInStagger = {
         visible: {
@@ -64,31 +76,35 @@ const WorkPage = () => {
                             <motion.div variants={fadeIn} className="text-lg font-light text-cgray lg:text-base">My portfolio</motion.div>
                         </div>
 
-                        <div className="flex flex-col items-start self-stretch justify-start gap-3">
-                            <motion.div
-                                variants={slideUp}
-                                whileHover={{ scale: 1.02, rotate: 2 }}
-                                className='w-full p-0.5 cursor-pointer rounded-2xl bg-gradient-to-tr from-cborder via-cgray to-cborder bg-opacity-30'>
-                                <div className="inline-flex flex-col items-start justify-start w-full h-full bg-cfg rounded-2xl">
-                                    <img src="https://placehold.co/600x400/png" className="self-stretch object-cover h-48 rounded-2xl" />
-                                    <div className="w-full px-3 py-5 flex-col justify-start items-start gap-2.5 flex">
-                                        <div className="text-base font-normal text-cpg">Name</div>
-                                        <div className="self-stretch text-base font-light text-cgray">Incididunt ut aliquip incididunt aliqua ad amet reprehenderit veniam velit ipsum non consectetur do.
-                                        </div>
-                                        <div className="self-stretch justify-end items-center gap-2.5 inline-flex">
-                                            <motion.div
-                                                className="flex items-center justify-end gap-2 px-3 py-2 rounded-lg bg-cborder">
-                                                <div className="text-base font-normal text-right text-cpg">Read more</div>
-                                                <ArrowRightCircle className='w-4 h-4 text-cpg' />
-                                            </motion.div>
+                        <div className="flex flex-col items-start justify-start gap-3">
+                            {posts.map((post, index) => (
+                                <div
+                                    variants={slideUp}
+                                    key={index}
+                                    whileHover={{ scale: 1.02, rotate: 2 }}
+                                    className='w-full p-0.5 cursor-pointer rounded-2xl bg-gradient-to-tr from-cborder via-cgray to-cborder bg-opacity-30'>
+                                    <div className="inline-flex flex-col items-start justify-start w-full h-full bg-cfg rounded-2xl">
+                                        <img src={post.node.heroImage.url} className="self-stretch object-cover h-48 rounded-2xl" />
+                                        <div className="w-full px-3 py-5 flex-col justify-start items-start gap-2.5 flex">
+                                            <div className="text-base font-normal text-cpg">{post.node.title}</div>
+                                            <div className="self-stretch text-base font-light text-cgray">{post.node.excerpt}
+                                            </div>
+                                            <div className="self-stretch justify-end items-center gap-2.5 inline-flex">
+                                                <div
+                                                    className="flex items-center justify-end gap-2 px-3 py-2 rounded-lg bg-cborder">
+                                                    <div className="text-base font-normal text-right text-cpg">Read more</div>
+                                                    <ArrowRightCircle className='w-4 h-4 text-cpg' />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
+                            ))}
                         </div>
                     </motion.div>
                 </div>
-                <div className='hidden w-full h-full lg:block'>
+                <div className='hidden w-full h-full lg:flex bg-cread'>
+                    <PostDetail post={activePost} />
                 </div>
             </div >
         </>
