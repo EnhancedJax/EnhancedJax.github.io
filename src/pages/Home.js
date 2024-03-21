@@ -79,6 +79,7 @@ const HomePage = () => {
                         variants={fadeInStagger}
                         initial='hidden'
                         animate={controls}
+                        exit='hidden'
                     >
                         <div
                             className="flex flex-col items-center self-stretch justify-start gap-4"

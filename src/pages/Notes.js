@@ -49,25 +49,32 @@ function NotesPage() {
         <>
             <div className="flex flex-row h-screen lg:pl-16">
                 <div className="px-5 pt-10 pb-20 w-full lg:w-[340px] lg:min-w-[340px] lg:border-r lg:border-r-cborder">
-                    <div className="flex flex-col w-full gap-10">
+                    <motion.div className="flex flex-col w-full gap-10"
+                        variants={fadeInStagger}
+                        initial="hidden"
+                        animate={controls}
+                        exit="hidden">
                         <div className="flex flex-col justify-center gap-2 pl-3">
-                            <div className="text-xl font-light text-white lg:text-base">My University Notes</div>
-                            <div className="text-lg font-light text-cgray lg:text-base">Typed with LaTeX.</div>
+                            <motion.div variants={fadeIn} className="text-xl font-light text-white lg:text-base">My University Notes</motion.div>
+                            <motion.div variants={fadeIn} className="text-lg font-light text-cgray lg:text-base">Typed with LaTeX.</motion.div>
                         </div>
                         <div className="self-stretch h-[466px] flex-col justify-start items-start gap-3 flex">
-                            <input
+                            <motion.input
+                                variants={fadeIn}
                                 id="outlined-basic"
                                 onChange={inputHandler}
                                 placeholder="Type to search by course code"
                                 type="text"
                                 className="w-full p-4 bg-cborder rounded-lg border border-cborder flex-col justify-start items-start gap-2.5 flex text-cpg text-base font-light placeholder-cgray"
                             />
-                            <List input={inputText} onItemClick={handleItemClick} />
+                            <motion.div variants={fadeIn}>
+                                <List input={inputText} onItemClick={handleItemClick} />
+                            </motion.div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className='hidden w-full h-full lg:block'>
-                    <iframe src={iframeUrl} width="100%" height="100%" />
+                    <motion.iframe variants={fadeIn} src={iframeUrl} width="100%" height="100%" />
                 </div>
             </div>
         </>

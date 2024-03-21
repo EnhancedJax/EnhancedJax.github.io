@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import SectionIndicator from '../components/sectionindicator';
-import { motion, useAnimation } from "framer-motion";
+import { AnimatePresence, motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
 import Icon from '../components/icon';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const StackPage = () => {
     const controls = useAnimation();
+    const [index, setIndex] = useState(0);
 
     useEffect(() => {
 
@@ -24,6 +25,18 @@ const StackPage = () => {
         },
         hidden: {
             opacity: 0
+        }
+    };
+
+    const fadeOutStagger = {
+        visible: {
+            opacity: 1
+        },
+        hidden: {
+            opacity: 0,
+            transition: {
+                staggerChildren: 0.15
+            }
         }
     };
 
@@ -45,6 +58,7 @@ const StackPage = () => {
                         variants={fadeInStagger}
                         initial="hidden"
                         animate={controls}
+                        exit="hidden"
                     >
                         <div className="flex flex-col items-start justify-center gap-2 pl-3">
                             <motion.div variants={fadeIn} className="text-xl font-light text-white">Stack</motion.div>
@@ -62,11 +76,7 @@ const StackPage = () => {
                         <motion.div variants={fadeIn}>
                             <SectionIndicator>Technologies</SectionIndicator>
 
-                            <motion.div
-
-                                variants={fadeInStagger}
-                                initial="hidden"
-                                animate={controls}
+                            <div
                                 className="flex flex-col w-full gap-3 p-3 px-6 py-4 rounded-lg bg-cfg">
                                 <LangItem name="HTML5" prog="9" level="2" />
                                 <LangItem name="Tailwind CSS" prog="8" level="2" />
@@ -74,7 +84,7 @@ const StackPage = () => {
                                 <LangItem name="C++" prog="7" level="2" />
                                 <LangItem name="React.js" prog="7" level="1" />
                                 <LangItem name="React Native" prog="5" level="0" />
-                            </motion.div>
+                            </div>
                         </motion.div>
                         <motion.div variants={fadeIn}>
                             <SectionIndicator>Software</SectionIndicator>
@@ -146,5 +156,93 @@ const SoftwareItem = ({ name, type, icon }) => {
         </ div>
     )
 }
+
+
+{/* <motion.div className='relative h-40' variants={fadeIn}>
+<AnimatePresence initial={false}>
+    <Card key={index + 1} frontCard={false} />
+    <Card
+        key={index}
+        frontCard={true}
+        index={index}
+        setIndex={setIndex}
+        drag="x"
+    />
+</AnimatePresence>
+</motion.div> */}
+
+
+// function Card(props) {
+//     const [exitX, setExitX] = useState(0);
+
+//     const x = useMotionValue(0);
+//     const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
+//     const rotate = useTransform(x, [-150, 0, 150], [-45, 0, 45], {
+//         clamp: false
+//     });
+
+//     const variantsFrontCard = {
+//         animate: { scale: 1, y: 0, opacity: 1 },
+//         exit: (custom) => ({
+//             x: custom,
+//             opacity: 0,
+//             scale: 0.5,
+//             transition: { duration: 0.2 }
+//         })
+//     };
+//     const variantsBackCard = {
+//         initial: { scale: 0, y: 105, opacity: 0 },
+//         animate: { scale: 0.75, y: 30, opacity: 0.5 }
+//     };
+
+//     function handleDragEnd(_, info) {
+//         if (info.offset.x < -100) {
+//             setExitX(-250);
+//             props.setIndex(props.index + 1);
+//         }
+//         if (info.offset.x > 100) {
+//             setExitX(250);
+//             props.setIndex(props.index + 1);
+//         }
+//     }
+
+//     return (
+//         <motion.div
+//             style={{
+//                 width: 150,
+//                 height: 150,
+//                 position: "absolute",
+//                 top: 0,
+//                 x,
+//                 rotate,
+//                 cursor: "grab"
+//             }}
+//             whileTap={{ cursor: "grabbing" }}
+//             // Dragging
+//             drag={props.drag}
+//             dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
+//             onDragEnd={handleDragEnd}
+//             // Animation
+//             variants={props.frontCard ? variantsFrontCard : variantsBackCard}
+//             initial="initial"
+//             animate="animate"
+//             exit="exit"
+//             custom={exitX}
+//             transition={
+//                 props.frontCard
+//                     ? { type: "spring", stiffness: 300, damping: 20 }
+//                     : { scale: { duration: 0.2 }, opacity: { duration: 0.4 } }
+//             }
+//         >
+//             <motion.div
+//                 className='w-[400px] h-[150px] bg-white'
+//                 style={{
+//                     borderRadius: 30,
+//                     scale
+//                 }}
+//             />
+//         </motion.div>
+//     );
+// }
 
 export default StackPage;
